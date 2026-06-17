@@ -13,12 +13,14 @@
     "db:migrate:content-en": "tsx scripts/db-migrate-content-en.ts",
     "db:migrate:guest-count": "tsx scripts/db-migrate-guest-count.ts",
     "db:migrate:rls": "tsx scripts/db-migrate-rls.ts",
+    "storage:setup": "tsx scripts/setup-storage.ts",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.108.2",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
     "next": "16.2.9",

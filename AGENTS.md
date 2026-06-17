@@ -20,7 +20,7 @@ This project is a **birthday invitation site for Alyssa**. Event details are sto
 - Data fetch: `lib/get-invitation.ts` (Drizzle)
 - Server actions: `lib/actions/invitation.ts` (update, upload, auth)
 - Auth: `lib/auth.ts` (`ADMIN_PASSWORD` cookie session)
-- Uploads: `lib/uploads.ts` → `public/uploads/`
+- Uploads: `lib/uploads.ts` → Supabase Storage (production) or `public/uploads/` (local dev)
 - Drizzle schema: `db/schema.ts`
 - UI primitives: `components/ui/`
 - Page sections: `components/sections/`
@@ -32,6 +32,9 @@ This project is a **birthday invitation site for Alyssa**. Event details are sto
 |----------|----------|---------|
 | `DATABASE_URL` | Yes | Postgres connection (Drizzle) |
 | `ADMIN_PASSWORD` | Yes | Password for `/admin` login |
+| `SUPABASE_URL` | Yes on Vercel | Supabase project URL for image uploads |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes on Vercel | Server-side Storage access (keep secret) |
+| `SUPABASE_STORAGE_BUCKET` | No | Storage bucket name (default: `uploads`) |
 
 ### Package manager
 
