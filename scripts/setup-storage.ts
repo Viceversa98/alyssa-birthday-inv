@@ -1,14 +1,16 @@
-import "dotenv/config";
+import { config } from "dotenv";
 import {
   getStorageBucket,
   getSupabaseAdmin,
   isSupabaseStorageConfigured,
 } from "../lib/supabase-admin";
 
+config({ path: ".env.local" });
+
 const main = async () => {
   if (!isSupabaseStorageConfigured()) {
     console.error(
-      "Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in environment.",
+      "Missing SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local.",
     );
     process.exit(1);
   }
