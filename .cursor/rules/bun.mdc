@@ -1,0 +1,28 @@
+---
+description: Use Bun as the package manager and script runner for this project
+alwaysApply: true
+---
+
+# Bun
+
+This project uses **Bun** — not npm, yarn, or pnpm.
+
+## Commands
+
+| Task | Command |
+|------|---------|
+| Install dependencies | `bun install` |
+| Dev server | `bun run dev` |
+| Build | `bun run build` |
+| Lint | `bun run lint` |
+| DB connect | `bun run db:connect` |
+| DB seed | `bun run db:seed` |
+| DB push schema | `bun run db:push` |
+| Add package | `bun add <package>` |
+| Add dev package | `bun add -d <package>` |
+
+## Agent behavior
+
+- Run `bun install`, `bun add`, and `bun run` — never `npm` or `npx` unless Bun cannot run a specific tool
+- Prefer `bunx` over `npx` when a one-off CLI is needed (e.g. `bunx drizzle-kit push`)
+- Lockfile: `bun.lock` — do not create or update `package-lock.json`

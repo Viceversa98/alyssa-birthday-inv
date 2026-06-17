@@ -1,0 +1,54 @@
+---
+description: Birthday invitation design system — colors, Tailwind, accessibility
+alwaysApply: true
+---
+
+# Design System
+
+This is a **birthday invitation site for Alyssa**. Event copy lives in Supabase via `lib/invitation.ts`.
+
+## Stack
+
+- Tailwind CSS v4 utility-first styling only — no inline `style`, no per-component `.css` files
+- Adapt [Tailwind UI](https://tailwindui.com) marketing patterns (rounded-full buttons, card shadows, spacing scale). Build with our tokens; do not paste Tailwind UI source verbatim.
+
+## Colors
+
+Always use theme tokens — never hardcode hex in JSX:
+
+| Token | Usage |
+|-------|-------|
+| `blush` | Page background |
+| `pink-light` | Cards, section surfaces |
+| `rose` | Primary buttons, highlights |
+| `gold-light` | Borders, secondary accents |
+| `gold` | Headings, icons, emphasis |
+| `ink` | Body text |
+
+Examples: `bg-blush`, `text-gold`, `border-gold-light`, `bg-rose`
+
+## Typography
+
+- Headings: `font-display` (Playfair Display)
+- Body: `font-sans` (Lato)
+
+## Accessibility
+
+- Interactive elements need `aria-label` when text alone is insufficient
+- Support keyboard navigation (`tabIndex`, `onKeyDown` for custom controls)
+- Visible focus: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-blush`
+
+## Layout
+
+- **Mobile-first is mandatory** — base styles target phones (320–430px); enhance at `sm:` / `md:` only
+- Use `Container` for max-width rhythm; use `Section` for vertical spacing
+- No dark mode — light elegant palette only
+
+## Mobile-first checklist
+
+- Single column by default; no side-by-side until `sm:` or `md:`
+- Touch targets min `44px` (`min-h-11`, `py-3`)
+- Body text min `text-base` (16px)
+- Primary CTAs: `fullWidth` on `Button` → `w-full sm:w-auto`
+- Typography scales up: e.g. `text-4xl sm:text-5xl md:text-6xl`
+- Images: `aspect-square object-cover`, no horizontal overflow

@@ -1,0 +1,48 @@
+---
+description: React component conventions for UI and page sections
+globs: **/*.tsx
+alwaysApply: false
+---
+
+# Component Conventions
+
+## File locations
+
+- Reusable UI primitives → `components/ui/`
+- Page sections → `components/sections/`
+- Admin editor → `components/admin/`
+- Shared config & data → `lib/invitation.ts`
+- Server actions → `lib/actions/invitation.ts`
+- Class merging → `lib/cn.ts`
+
+## Patterns
+
+```tsx
+// ✅ GOOD — const arrow, typed props, cn() for classes
+type ButtonProps = {
+  variant?: "primary" | "secondary";
+  children: React.ReactNode;
+};
+
+const Button = ({ variant = "primary", children }: ButtonProps) => {
+  return (
+    <button className={cn("rounded-full px-6 py-2", variant === "primary" && "bg-rose")}>
+      {children}
+    </button>
+  );
+};
+```
+
+- Use `const` arrow functions for components
+- Prefix event handlers with `handle` (`handleClick`, `handleKeyDown`)
+- Props typed with `type` (not `interface` unless extending)
+- Compose classes with `cn()` from `@/lib/cn`
+- No business logic in `components/ui/` primitives — keep them presentational
+- Page sections receive `data: InvitationData` prop — do not import static config
+
+## Imports
+
+```tsx
+import { Button, Card, Container } from "@/components/ui";
+import { type InvitationData } from "@/lib/invitation";
+```
