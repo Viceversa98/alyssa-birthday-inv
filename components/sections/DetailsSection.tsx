@@ -43,7 +43,7 @@ export const DetailsSection = ({
   const wazeUrl = getWazeUrl(data);
 
   return (
-    <Section title={data.detailsTitle} subtitle={data.detailsSubtitle}>
+    <Section id="details" title={data.detailsTitle} subtitle={data.detailsSubtitle}>
       <Card>
         <Card.Content className="space-y-8">
           <EventDate date={data.date} timeLabel={data.timeLabel} locale={locale} />

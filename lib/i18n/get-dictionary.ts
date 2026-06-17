@@ -52,10 +52,22 @@ export type Dictionary = {
     en: string;
     msFull: string;
     enFull: string;
+    loading: string;
   };
   hero: {
     birthday: string;
     photoAlt: (name: string) => string;
+    ctaRsvp: string;
+    ctaDetails: string;
+    ctaRsvpAria: string;
+    ctaDetailsAria: string;
+  };
+  journey: {
+    navLabel: string;
+    welcome: string;
+    details: string;
+    gallery: string;
+    rsvp: string;
   };
   details: {
     location: string;
@@ -69,6 +81,8 @@ export type Dictionary = {
     title: string;
     subtitle: string;
     photoAlt: string;
+    openPhoto: string;
+    closeLightbox: string;
   };
   calendar: {
     google: string;
@@ -79,6 +93,9 @@ export type Dictionary = {
   };
   rsvp: {
     deadline: (date: string) => string;
+    stepAttend: string;
+    stepDetails: string;
+    stepWishes: string;
     attendingLegend: string;
     going: string;
     notGoing: string;
@@ -98,6 +115,7 @@ export type Dictionary = {
     errorSave: string;
     successGoing: (name: string) => string;
     successNotGoing: string;
+    successWishHint: string;
   };
   admin: {
     login: AdminLoginDict;

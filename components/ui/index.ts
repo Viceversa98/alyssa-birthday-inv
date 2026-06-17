@@ -7,3 +7,5 @@ export { AddToCalendar } from "./AddToCalendar";
 export { Input } from "./Input";
 export { Textarea } from "./Textarea";
 export { Label } from "./Label";
+export { Spinner } from "./Spinner";
+export { Skeleton } from "./Skeleton";

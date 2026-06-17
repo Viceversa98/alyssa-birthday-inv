@@ -5,10 +5,22 @@ export const en = {
     en: "EN",
     msFull: "Bahasa Melayu",
     enFull: "English",
+    loading: "Loading…",
   },
   hero: {
     birthday: "Birthday",
     photoAlt: (name: string) => `${name}'s photo`,
+    ctaRsvp: "RSVP now",
+    ctaDetails: "See event details",
+    ctaRsvpAria: "Scroll to RSVP section",
+    ctaDetailsAria: "Scroll to event details",
+  },
+  journey: {
+    navLabel: "Page sections",
+    welcome: "Welcome",
+    details: "Details",
+    gallery: "Memories",
+    rsvp: "RSVP",
   },
   details: {
     location: "Location",
@@ -22,6 +34,8 @@ export const en = {
     title: "Memories",
     subtitle: "A glimpse of the celebration",
     photoAlt: "Celebration photo",
+    openPhoto: "View photo",
+    closeLightbox: "Close photo viewer",
   },
   calendar: {
     google: "Add to Google Calendar",
@@ -32,6 +46,9 @@ export const en = {
   },
   rsvp: {
     deadline: (date: string) => `Kindly respond by ${date}`,
+    stepAttend: "1. Will you attend?",
+    stepDetails: "2. Your details",
+    stepWishes: "3. Birthday wishes (optional)",
     attendingLegend: "Will you be attending?",
     going: "Yes, I'm going",
     notGoing: "Sorry, can't make it",
@@ -52,6 +69,7 @@ export const en = {
     successGoing: (name: string) =>
       `Thank you! We can't wait to celebrate with you, ${name}.`,
     successNotGoing: "Thank you for letting us know. We'll miss you!",
+    successWishHint: "Your wish is floating up!",
   },
   admin: {
     login: {

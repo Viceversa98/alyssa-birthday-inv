@@ -5,10 +5,22 @@ export const ms = {
     en: "EN",
     msFull: "Bahasa Melayu",
     enFull: "English",
+    loading: "Memuatkan…",
   },
   hero: {
     birthday: "Hari Lahir",
     photoAlt: (name: string) => `Foto ${name}`,
+    ctaRsvp: "RSVP sekarang",
+    ctaDetails: "Lihat butiran acara",
+    ctaRsvpAria: "Tatal ke bahagian RSVP",
+    ctaDetailsAria: "Tatal ke butiran acara",
+  },
+  journey: {
+    navLabel: "Bahagian halaman",
+    welcome: "Selamat datang",
+    details: "Butiran",
+    gallery: "Kenangan",
+    rsvp: "RSVP",
   },
   details: {
     location: "Lokasi",
@@ -22,6 +34,8 @@ export const ms = {
     title: "Kenangan",
     subtitle: "Sekilas tentang sambutan",
     photoAlt: "Foto sambutan",
+    openPhoto: "Lihat foto",
+    closeLightbox: "Tutup paparan foto",
   },
   calendar: {
     google: "Tambah ke Google Calendar",
@@ -32,6 +46,9 @@ export const ms = {
   },
   rsvp: {
     deadline: (date: string) => `Sila sahkan kehadiran sebelum ${date}`,
+    stepAttend: "1. Adakah anda akan hadir?",
+    stepDetails: "2. Butiran anda",
+    stepWishes: "3. Ucapan hari lahir (pilihan)",
     attendingLegend: "Adakah anda akan hadir?",
     going: "Ya, saya akan hadir",
     notGoing: "Maaf, tidak dapat hadir",
@@ -53,6 +70,7 @@ export const ms = {
       `Terima kasih! Kami tidak sabar untuk meraikan bersama anda, ${name}.`,
     successNotGoing:
       "Terima kasih kerana memaklumkan kami. Kami akan merindui anda!",
+    successWishHint: "Ucapan anda sedang melayang ke atas!",
   },
   admin: {
     login: {

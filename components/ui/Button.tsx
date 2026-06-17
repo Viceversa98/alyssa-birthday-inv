@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { Spinner } from "./Spinner";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
@@ -7,6 +8,7 @@ type ButtonProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
   fullWidth?: boolean;
+  loading?: boolean;
   className?: string;
   children: React.ReactNode;
   href?: string;
@@ -35,6 +37,7 @@ export const Button = ({
   variant = "primary",
   size = "md",
   fullWidth = false,
+  loading = false,
   className,
   children,
   href,
@@ -45,7 +48,20 @@ export const Button = ({
     variantClasses[variant],
     sizeClasses[size],
     fullWidth && "w-full sm:w-auto",
+    loading && "pointer-events-none opacity-70",
     className,
+  );
+
+  const content = (
+    <>
+      {loading && (
+        <Spinner
+          size={size === "lg" ? "md" : "sm"}
+          className="mr-2 shrink-0"
+        />
+      )}
+      {children}
+    </>
   );
 
   if (href) {
@@ -55,7 +71,7 @@ export const Button = ({
         className={classes}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
-        {children}
+        {content}
       </a>
     );
   }
@@ -66,9 +82,11 @@ export const Button = ({
     <button
       className={classes}
       type={buttonProps.type ?? "button"}
+      disabled={loading || buttonProps.disabled}
+      aria-busy={loading || undefined}
       {...buttonProps}
     >
-      {children}
+      {content}
     </button>
   );
 };

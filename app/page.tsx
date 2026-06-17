@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JourneyNav } from "@/components/JourneyNav";
 import { WishBubblesLayer } from "@/components/WishBubblesLayer";
 import { DetailsSection } from "@/components/sections/DetailsSection";
 import { FloatingBalloons } from "@/components/sections/FloatingBalloons";
@@ -27,13 +28,26 @@ export default async function Home() {
   const invitation = localizeInvitation(await getInvitation(), locale);
   const publicWishes = await getPublicWishes();
 
+  const journeySections = [
+    { id: "welcome", label: dict.journey.welcome },
+    { id: "details", label: dict.journey.details },
+    ...(invitation.galleryImages.length > 0
+      ? [{ id: "gallery", label: dict.journey.gallery }]
+      : []),
+    { id: "rsvp", label: dict.journey.rsvp },
+  ];
+
   return (
     <WishBubblesLayer initialWishes={publicWishes}>
-      <main className="relative z-10 min-h-full flex-1">
+      <main className="relative z-10 min-h-full flex-1 pb-24">
         <HeroSection
           data={invitation}
           birthdayLabel={dict.hero.birthday}
           photoAlt={dict.hero.photoAlt(invitation.celebrantName)}
+          ctaRsvp={dict.hero.ctaRsvp}
+          ctaDetails={dict.hero.ctaDetails}
+          ctaRsvpAria={dict.hero.ctaRsvpAria}
+          ctaDetailsAria={dict.hero.ctaDetailsAria}
         />
         <DetailsSection
           data={invitation}
@@ -60,9 +74,12 @@ export default async function Home() {
             title={dict.gallery.title}
             subtitle={dict.gallery.subtitle}
             photoAlt={dict.gallery.photoAlt}
+            openPhotoLabel={dict.gallery.openPhoto}
+            closeLightboxLabel={dict.gallery.closeLightbox}
           />
         )}
         <RsvpSection data={invitation} locale={locale} />
+        <JourneyNav sections={journeySections} navLabel={dict.journey.navLabel} />
       </main>
       <FloatingBalloons />
     </WishBubblesLayer>
